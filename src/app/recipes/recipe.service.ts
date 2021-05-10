@@ -21,10 +21,14 @@ export class RecipeService {
   ];
 
   constructor(private slService: ShoppingListService) {
-
   }
+
   getRecipes() {
     return this.recipes.slice(); //only get a copy from the outside
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   addIngridentsToShoppingList(ingredients: Ingredient[]) {

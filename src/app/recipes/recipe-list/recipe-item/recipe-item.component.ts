@@ -9,6 +9,7 @@ import { RecipeService } from "../../recipe.service";
 export class RecipeItemComponent implements OnInit {
   //get recipe from recipe list component
   @Input() recipe: Recipe;
+  @Input() index: number;
 
   // listen to this event from outside
   // @Output() recipeSelected = new EventEmitter<void>(); //void = none
@@ -19,7 +20,7 @@ export class RecipeItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelected() {
-    this.recipeService.recipeSelected.emit(this.recipe);
-  }
+  // onSelected() {
+  //   this.recipeService.recipeSelected.emit(this.recipe);
+  // }
 }
