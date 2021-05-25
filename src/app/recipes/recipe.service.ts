@@ -8,6 +8,7 @@ import { Recipe } from "./recipe.model";
 export class RecipeService {
   //recipeSelected = new EventEmitter<Recipe>();
   //recipeSelected = new Subject<Recipe>();
+  recipeChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe('A test recipt', 'this is test desc', 'https://cdn2.iconfinder.com/data/icons/bakery-related-line/64/bakery_pastry_cooking-06-512.png',
@@ -35,5 +36,20 @@ export class RecipeService {
 
   addIngridentsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngridents(ingredients);
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipeChanged.next(this.recipes.slice());
   }
 }
