@@ -39,6 +39,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   //   this.featureSelected.emit(feature) //emit the event when click the button
   // }
 
+  onLogout() {
+    this.authService.logout();
+  }
+
   ngOnDestroy() {
     this.userSub.unsubscribe();
   }
