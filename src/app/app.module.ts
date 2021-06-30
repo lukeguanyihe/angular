@@ -31,7 +31,6 @@ import { AuthModule } from './auth/auth.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RecipesModule,
     ShoppingListModule,
     SharedModule,
     CoreModule,
